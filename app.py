@@ -16,3 +16,19 @@ app = FastAPI()
 #list to store persons data
 data = []
 
+#decorator to define or create path
+@app.post("/person")
+
+async def create_new_person(request_person:Data):
+    data.append(request_person)
+
+    person_json = jsonable_encoder(request_person)
+
+    return person_json
+
+
+@app.get("/person") #decorator
+
+async def get_persons_list():
+    return data
+
