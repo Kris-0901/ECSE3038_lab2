@@ -21,17 +21,17 @@ data = []
 
 #function to add new person of type/class Data
 async def create_new_person(new_person:Data):
-    data.append(new_person)
-
-    #convert dictionary/ class new_person to JSON format
-    person_json = jsonable_encoder(new_person)
-
+   
     # iterate through all keys in new_person  and chjeck for None/ "" (empty string) and return success or faliure message
     for any_key in new_person:
         if  new_person.name == "" or new_person.address == "" or new_person.occupation== "":
             return {"success": False,"result": {"error_message": "invalid request"}}
         else:
-             return {"success": True,"result": person_json}
+            data.append(new_person)
+
+            #convert dictionary/ class new_person to JSON format
+            person_json = jsonable_encoder(new_person)
+            return {"success": True,"result": person_json}
 
 
 #decorator to define or create path
