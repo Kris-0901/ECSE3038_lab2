@@ -37,7 +37,10 @@ async def create_new_person(new_person:Data):
 #decorator to define or create path
 @app.get("/person") 
 
-#function to return the entire lists of person using Rest API GET request
+#function to return the entire lists of person using Rest API GET request. If list is empty it returns the expected input
 async def get_persons_list():
+    if not data :
+        return {"status":"this database is empty. send a rest api post request to 'http://localhost:8000/person' in the following json format",
+                "json format": {"name": "John","occupation": "Boxer","address":"21 First Street"}}
     return data
 
