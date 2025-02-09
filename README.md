@@ -84,6 +84,7 @@ This code was written to fulfill the course requirements of 'ECSE3038 Engineerin
 ## Favourite Pokemon
 
 **Blaziken** 
+
 Blaziken is a strong and valuable Pokémon. It has a high attack stat, impressive speed, and a versatile move pool. Blaziken's unique Fire/Fighting typing also gives it an advantage against certain types of Pokémon.
 
-Also just looks cool ¯\_(ツ)_/¯
+Also just looks cool ¯\ __(ツ)_/¯
