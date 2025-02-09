@@ -19,16 +19,25 @@ data = []
 #decorator to define or create path
 @app.post("/person")
 
-async def create_new_person(request_person:Data):
-    data.append(request_person)
+#function to add new person of type/class Data
+async def create_new_person(new_person:Data):
+    data.append(new_person)
 
-    person_json = jsonable_encoder(request_person)
+    #convert dictionary/ class new_person to JSON format
+    person_json = jsonable_encoder(new_person)
 
-    return person_json
+    # iterate through all keys in new_person  and chjeck for None/ "" (empty string) and return success or faliure message
+    for any_key in new_person:
+        if  new_person.name == "" or new_person.address == "" or new_person.occupation== "":
+            return {"success": False,"result": {"error_message": "invalid request"}}
+        else:
+             return {"success": True,"result": person_json}
 
 
-@app.get("/person") #decorator
+#decorator to define or create path
+@app.get("/person") 
 
+#function to return the entire lists of person using Rest API GET request
 async def get_persons_list():
     return data
 
